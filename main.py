@@ -6,7 +6,6 @@ from typing import List
 from src.api import HeadHunterAPI
 from src.config import LOG_LEVEL, VACANCY_FILE, DEFAULT_PER_PAGE
 from src.file_saver import JSONSaver, VacancyFileSaver
-from src.csv_saver import CSVSaver
 from src.utils import (
     filter_vacancies,
     get_top_vacancies,

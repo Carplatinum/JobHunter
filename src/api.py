@@ -1,7 +1,12 @@
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List
 import requests
+import logging
 from src.config import HH_API_URL
+import json
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
 
 
 class VacancyAPI(ABC):
@@ -48,6 +53,7 @@ class HeadHunterAPI(VacancyAPI):
         """
         Получить список вакансий по ключевому слову с hh.ru.
         Вызывает метод подключения перед запросом.
+        Обрабатывает ошибки JSON и логирует ответ при ошибке.
         """
         self._connect()
         params: dict[str, str | int] = {
@@ -58,5 +64,12 @@ class HeadHunterAPI(VacancyAPI):
         response = self.__session.get(self.__BASE_URL, params=params)  # type: ignore[arg-type]
         if response.status_code != 200:
             raise RuntimeError("Ошибка получения данных с hh.ru")
-        data = response.json()
+
+        try:
+            data = response.json()
+        except json.JSONDecodeError as e:
+            logger.error(f"Ошибка декодирования JSON: {e}")
+            logger.error(f"Ответ сервера (первые 1000 символов): {response.text[:1000]}")
+            raise RuntimeError("Ошибка получения данных с hh.ru (невалидный JSON)")
+
         return data.get('items', [])
