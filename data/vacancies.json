@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Python Developer",
+    "url": "https://hh.ru/vacancy/123456",
+    "salary": 120000,
+    "description": "Разработка веб-приложений на Python, опыт с Django и Flask."
+  },
+  {
+    "title": "Java Developer",
+    "url": "https://hh.ru/vacancy/654321",
+    "salary": 110000,
+    "description": "Разработка корпоративных приложений на Java, опыт с Spring Framework."
+  },
+  {
+    "title": "Тестировщик ПО",
+    "url": "https://hh.ru/vacancy/789012",
+    "salary": 90000,
+    "description": "Тестирование веб-приложений, написание тест-кейсов и автоматизация тестирования."
+  },
+  {
+    "title": "Аналитик данных",
+    "url": "https://hh.ru/vacancy/345678",
+    "salary": 130000,
+    "description": "Анализ данных, построение отчетов, опыт работы с SQL и Python."
+  }
+]

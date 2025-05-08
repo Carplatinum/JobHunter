@@ -1,0 +1,8 @@
+{
+  "default_search_query": "Python",
+  "default_per_page": 20,
+  "default_salary_range": "100000-200000",
+  "favorite_keywords": ["Flask", "Remote"],
+  "last_used_area": 113,
+  "output_file": "data/vacancies.json"
+}
